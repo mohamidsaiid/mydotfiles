@@ -1,59 +1,46 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /home/mohamed/.config/ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
+# Window
+background-opacity = 0.9
+window-decoration = false
+window-padding-x = 8
+window-padding-y = 6
 
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
-# window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
+# Font
+font-family = JetBrainsMono Nerd Font
+font-style = Medium
+font-size = 10.5
 
-#theme = Argonaut
-#theme = duckbones 
-#theme  = duskfox
-theme = Grape
-font-family = JetBrainsMono Nerd Font 
-#font-family = CaskaydiaMono Nerd Font
-#font-family = CaskaydiaCove Nerd Font
-font-size = 11
-#background-opacity = 0.75
-background-blur = true
-background-blur-radius = 40
-#gtk-titlebar = false
-# custom-shader = /home/chris/bloom.glsl
-#custom-shader = /home/chris/crt.glsl
+# Shell
+shell-integration = zsh
+command = /bin/zsh
 
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+# Colors
+background = 1e1b29
+foreground = cfc6ff
+
+# Normal colors
+palette = 0=#1e1b29
+palette = 1=#ff5c93
+palette = 2=#a8ff60
+palette = 3=#ffd700
+palette = 4=#5a3dad
+palette = 5=#a183ff
+palette = 6=#00d3d0
+palette = 7=#cfc6ff
+
+# Bright colors
+palette = 8=#44475a
+palette = 9=#ff6e96
+palette = 10=#b0ff87
+palette = 11=#ffe066
+palette = 12=#7b5cf2
+palette = 13=#bd99ff
+palette = 14=#33f6f4
+palette = 15=#ffffff
