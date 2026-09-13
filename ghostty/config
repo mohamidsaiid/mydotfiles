@@ -1,5 +1,5 @@
 # Window
-background-opacity = 0.9
+background-opacity = 0.95
 window-decoration = false
 window-padding-x = 8
 window-padding-y = 6
@@ -7,7 +7,7 @@ window-padding-y = 6
 # Font
 font-family = JetBrainsMono Nerd Font
 font-style = Medium
-font-size = 10.5
+font-size = 9
 
 # Shell
 shell-integration = zsh
@@ -22,25 +22,38 @@ clipboard-read = allow
 clipboard-write = allow
 
 # Colors
-background = 1e1b29
-foreground = cfc6ff
+background = 110b18
+foreground = dad3ff
+
+cursor-color = dad3ff
+cursor-text = 110b18
+
+selection-background = 3b2d60
+selection-foreground = f0ebff
 
 # Normal colors
-palette = 0=#1e1b29
-palette = 1=#ff5c93
-palette = 2=#a8ff60
-palette = 3=#ffd700
-palette = 4=#5a3dad
-palette = 5=#a183ff
-palette = 6=#00d3d0
-palette = 7=#cfc6ff
+palette = 0=#110b18
+palette = 1=#ff3650
+palette = 2=#beeaa2
+palette = 3=#ffea34
+palette = 4=#8168e2
+palette = 5=#f053db
+palette = 6=#85c8c6
+palette = 7=#e1dcff
 
 # Bright colors
-palette = 8=#44475a
-palette = 9=#ff6e96
-palette = 10=#b0ff87
-palette = 11=#ffe066
-palette = 12=#7b5cf2
-palette = 13=#bd99ff
-palette = 14=#33f6f4
+palette = 8=#65576b
+palette = 9=#ff7a87
+palette = 10=#d9ffc7
+palette = 11=#fff190
+palette = 12=#a49aff
+palette = 13=#f09dff
+palette = 14=#a8f1ef
 palette = 15=#ffffff
+# Send Shift+Enter as CSI-u so TUIs can distinguish it from Enter.
+keybind = shift+enter=csi:13;2u
+
+background-blur = true
+
+# Legacy encoding sends Alt+Shift+Enter the same as Alt+Enter; send CSI-u so tmux can match M-S-Enter.
+keybind = alt+shift+enter=csi:13;4u
