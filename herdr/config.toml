@@ -1,0 +1,114 @@
+onboarding = false
+# Mirrors ~/.config/tmux/tmux.conf
+# tmux session -> herdr workspace, tmux window -> herdr tab, tmux pane -> herdr pane
+#
+# Note on split naming: tmux names splits after the flag, herdr after the
+# divider. tmux `split-window -h` (side by side) == herdr split_vertical;
+# tmux `split-window -v` (stacked) == herdr split_horizontal.
+
+[theme]
+# set -g @plugin "janoamaral/tokyo-night-tmux"
+# set -g @tokyo-night-tmux_theme night
+name = "dracula"
+
+auto_switch = false
+[theme.custom]
+# @tokyo-night-tmux_transparent 1 -> let the terminal background through
+panel_bg = "reset"
+
+[terminal]
+# Every split and new-window binding carried -c "#{pane_current_path}"
+new_cwd = "follow"
+
+[keys]
+# tmux.conf never set `prefix`, so it stayed on tmux's default C-b
+prefix = "ctrl+b" 
+
+# Config and help
+# bind r source-file ~/.tmux.conf
+reload_config = "prefix+r"
+# herdr puts resize_mode on prefix+r by default; moved aside for reload.
+# tmux had no resize binding at all - it resized by mouse drag.
+resize_mode = "prefix+ctrl+r"
+# tmux list-keys
+help = "prefix+?"
+# tmux detach-client
+detach = "prefix+d"
+# herdr's own settings UI; moved off prefix+s, which tmux uses for the session list
+settings = "prefix+ctrl+s"
+# herdr-only; moved off prefix+o, which tmux uses for next-pane
+open_notification_target = "prefix+shift+o"
+
+# Copy mode
+# setw -g mode-keys vi
+copy_mode = "prefix+["
+
+# Panes
+# bind | split-window -h -c "#{pane_current_path}"   (prefix+% is tmux's default)
+split_vertical = ["prefix+|", "prefix+%"]
+# bind - split-window -v -c "#{pane_current_path}"
+split_horizontal = "prefix+minus"
+# tmux defaults
+close_pane = "prefix+x"
+zoom = "prefix+z"
+last_pane = "prefix+;"
+cycle_pane_next = "prefix+o"
+
+# Fast switch between panes using vim keys, copied verbatim from tmux.conf.
+# WARNING: tmux.conf binds `l` to select-pane -L and `h` to select-pane -R,
+# so h and l are inverted relative to vim. Reproduced here as-is. To get the
+# conventional mapping, swap the two lines marked below.
+focus_pane_left = "prefix+h"   # bind l select-pane -L   <- swap with the next line
+focus_pane_right = "prefix+l"  # bind h select-pane -R   <- swap with the previous line
+focus_pane_up = "prefix+k"     # bind k select-pane -U
+focus_pane_down = "prefix+j"   # bind j select-pane -D
+
+# Windows -> tabs
+# bind c new-window -c "#{pane_current_path}"
+new_tab = "prefix+c"
+# tmux defaults
+rename_tab = "prefix+,"
+close_tab = "prefix+&"
+switch_tab = "prefix+1..9"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+
+# Sessions -> workspaces (all tmux defaults)
+workspace_picker = "prefix+s"
+rename_workspace = "prefix+$"
+previous_workspace = "prefix+("
+next_workspace = "prefix+)"
+
+[ui]
+# set -g mouse on
+mouse_capture = true
+
+# tmux's status-position default is bottom; tmux.conf never moved it
+tab_bar_position = "bottom"
+
+# @tokyo-night-tmux_zoom_id_style dsquare + @tokyo-night-tmux_show_hostname 1
+# (@tokyo-night-tmux_show_datetime 0, so no clock)
+tab_bar_right = [{ type = "zoom" }, { type = "hostname" }]
+
+# tmux drew single-line dividers between adjacent panes, no outer frame,
+# no scrollbar column, no gaps
+pane_borders = true
+pane_outer_borders = false
+pane_scrollbars = false
+pane_gaps = false
+
+# automatic-rename gave windows a name without prompting
+prompt_new_tab_name = false
+
+# tmux.conf never set set-titles, and tmux leaves it off by default,
+# so the running program owns the terminal title
+window_title = ""
+
+show_agent_labels_on_pane_borders = true
+status_indicators = "symbols"
+[session]
+# set -g @continuum-restore 'on' (tmux-resurrect + tmux-continuum)
+resume_agents_on_restore = true
+
+[ui.toast]
+delivery = "system"
